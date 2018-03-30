@@ -6,20 +6,21 @@ class String {
 
 	//Attributs
 
-	c-string str_;
-	size_t size_string_;
-	size_t size_array_;
-	static size_t MAX_SIZE_;
+	char* str_;
+	int size_string_;
+	int size_array_;
+	static int MAX_SIZE_;
 	public :
 	//Getters
-	size_t size() const noexcept;
-	size_t length() const noexcept;
-	size_t max_size() const noexcept;
-	size_t capacity() const noexcept;
+	int size() const noexcept;
+	int length() const noexcept;
+	int max_size() const noexcept;
+	int capacity() const noexcept;
 	
 	//Constructors 
-	String (const String& str_);
-	String (const c-string str_);
+	String (const String& str);
+	String (const c-string str);
+	String ();
 
 	//Destructor
 	~String();
@@ -27,7 +28,7 @@ class String {
 	//Operators
 	String& operator= (const String& str_);
 	String& operator= (char* c);
-	String& operator= (char c);
+	void operator= (char c);
 	String operator+ (const String& lhs, const String& rhs);
 	String operator+ (const String& lhs, char rhs);
 	String operator+ (const String& lhs, char* rhs);
@@ -35,7 +36,6 @@ class String {
 	//Methods 	
 	void resize (size_t n);
 	void resize (size_t n, char c);
-	size_t capacity() const noexcept;
 	void reserve (size_t n = 0);
 	void clear() noexcept;
 	bool empty() const noexcept;

@@ -2,35 +2,12 @@
 
 
 //Constructors
-String::String (const c-string str_); {
-	
+String::String (const char* chstr); {
+	i=0;
+	while (chstr[s]!="\0") {
+		i+=1
+	}
+	str_=new char[i];
+	for (
 }
 
-//Getters
-String::String size_t length() const noexcept{
-	
-}
-
-
-//Methodes
-size_t max_size() const noexcept{
-
-}
-
-void resize (size_t n){
-
-}
-
-void resize (size_t n, char c){
-
-}
-
-
-//Operators
-String& operator= (char c){
-
-}
-
-String operator+ (const String& lhs, char* rhs){
-
-}
