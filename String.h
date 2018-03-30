@@ -18,17 +18,20 @@ class String {
 	size_t capacity() const noexcept;
 	
 	//Constructors 
-	string (const string& str_);
-	string (const c-string str_);
+	String (const String& str_);
+	String (const c-string str_);
+
 	//Destructor
-	~string();
+	~String();
+
 	//Operators
-	string& operator= (const string& str_);
-	string& operator= (char* c);
-	string& operator= (char c);
-	string operator+ (const string& lhs, const string& rhs);
-	string operator+ (const string& lhs, char rhs);
-	string operator+ (const string& lhs, char* rhs);
+	String& operator= (const String& str_);
+	String& operator= (char* c);
+	String& operator= (char c);
+	String operator+ (const String& lhs, const String& rhs);
+	String operator+ (const String& lhs, char rhs);
+	String operator+ (const String& lhs, char* rhs);
+
 	//Methods 	
 	void resize (size_t n);
 	void resize (size_t n, char c);
