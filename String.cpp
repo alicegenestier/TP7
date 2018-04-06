@@ -1,13 +1,126 @@
 #include"String.h"
+#include <iostream>
+using namespace std;
 
+const int String::MAX_SIZE_=100;
 
 //Constructors
-String::String (const char* chstr); {
-	i=0;
-	while (chstr[s]!="\0") {
-		i+=1
+/*Constructeur à partir d'un char**/
+String::String (const char* chstr) {
+	int i=0;
+	while (chstr[i]!='\0') {//On cherche à savoir la taille de la string pour allouer de la mémoire
+		i++;
 	}
-	str_=new char[i];
-	for (
+	char* cstring=new char[i+1];
+	for (int j=0; j<=i; j++){
+		cstring[j]=chstr[j];
+	}
+	cstring[i+1]='\0';
+	str_=cstring;
+	size_string_=i;
+	size_array_=i+1;
 }
+
+
+//Getters
+char* String::str() {
+    return str_;
+}
+
+//taille de la chaine de caractère
+int String::length() const noexcept{
+	return size_string_;
+}
+
+//taille maximale de la mémoire qui peut être allouée pour une String
+int String::max_size() const noexcept{
+	return MAX_SIZE_;
+}
+
+//Taille du tableau alloué pour la String
+int String::capacity() const noexcept{
+	return size_array_;
+}
+
+//Methodes
+/*Coupe la String
+Précondition : n doit être compris entre 0 et size_string_*/
+void String::resize (int n) {
+  if (n>size_string_) {
+    std::cout<<"L'entier n est plus grand que la taille de la string. S'il vous plait, entrer un entier inférieur ou égale à "<<size_string_<<endl;
+  }
+  else if (n<0) {
+    std::cout<<"L'entier n n'est doit pas être inférieur à 0"<<endl;
+  }
+  else {
+    int i=0;
+	  while (i<n){
+	    ++i;
+	  }
+	  str_[i]='\0';
+	  size_string_=i;
+  }
+}
+
+/*Allonge la String et ajoute dans les cases mémoires ajoutée le caractère entré en paramètre.
+Précondition : n doit être un entier compris entre size_string_+1 et max_size*/
+void String::resize (int n, char c) {
+  if (n>size_array_-1){
+    if (n>=MAX_SIZE_){
+      std::cout<<"L'entier n est plus grand que le maximum de mémoire qui peut être alloué pour une String. S'il vous plait, entrer un entier inférieur strictement à "<<MAX_SIZE_<<endl;
+    }
+    else {
+	    char* cstring=new char[n+1];
+	    for (int j=0; j<=size_string_; ++j){
+		    cstring[j]=str_[j];
+	    }
+	    for (int j=size_string_; j<=n; ++j){
+	      cstring[j]=c;
+	    }
+	  cstring[n+1]='\0';
+	  delete str_;
+	  str_=cstring;
+	  size_string_=n;
+	  size_array_=n+1;
+	  }
+  }
+  else {
+    if (n<0) {
+      std::cout<<"L'entier n n'est doit pas être inférieur à 0"<<endl;
+    }
+    else if (n<=size_string_) {
+      std::cout<<"L'entier n est plus petit que la taille de la string. S'il vous plait, entrer un entier supérieur à "<<size_string_<<endl;
+    }
+    else{
+       int i=size_string_;
+       while (i<n) {
+        str_[i]=c;
+        ++i;
+       }
+      str_[i]='\0';
+	    size_string_=i;
+    }
+  }
+}
+
+//Operators
+//=
+void String::operator= (char c){
+  char* cstring=new char[2];
+  cstring[0]=c;
+  cstring[1]='\0';
+  delete str_;
+  str_=cstring;
+  size_string_=1;
+  size_array_=2;
+}
+
+
+
+//Destructor
+/*String::~String(){
+  delete str_;
+}*/
+
+
 
