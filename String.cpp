@@ -23,11 +23,12 @@ String::String (const char* chstr) {
 
 
 //Getters
+//pointeur vers la String
 char* String::str() {
     return str_;
 }
 
-//taille de la chaine de caractère
+//taille de la chaine de caractère; taille de la String
 int String::length() const noexcept{
 	return size_string_;
 }
@@ -44,7 +45,8 @@ int String::capacity() const noexcept{
 
 //Methodes
 /*Coupe la String
-Précondition : n doit être compris entre 0 et size_string_*/
+Précondition : n doit être compris entre 0 et size_string_
+Procédure donc ne renvoie pas de résultat mais modifie l'objet courant */
 void String::resize (int n) {
   if (n>size_string_) {
     std::cout<<"L'entier n est plus grand que la taille de la string. S'il vous plait, entrer un entier inférieur ou égale à "<<size_string_<<endl;
@@ -63,7 +65,8 @@ void String::resize (int n) {
 }
 
 /*Allonge la String et ajoute dans les cases mémoires ajoutée le caractère entré en paramètre.
-Précondition : n doit être un entier compris entre size_string_+1 et max_size*/
+Précondition : n doit être un entier compris entre size_string_+1 et max_size
+Procédure donc ne renvoie pas de résultat mais modifie l'objet courant*/
 void String::resize (int n, char c) {
   if (n>size_array_-1){
     if (n>=MAX_SIZE_){
@@ -104,7 +107,7 @@ void String::resize (int n, char c) {
 }
 
 //Operators
-//=
+//opérateur = entre une String et un char
 void String::operator= (char c){
   char* cstring=new char[2];
   cstring[0]=c;
@@ -115,6 +118,27 @@ void String::operator= (char c){
   size_array_=2;
 }
 
+//opérateur + entre une String et un char* à droite
+String operator + (const String s, char* pt_c){
+    String s1(s.str_);
+    int i=0;
+    while (pt_c[i]!='\0'){
+        ++i;
+    }
+    char* cstring=new char[s1.size_array_+i];
+    for (int i=0; i<=s1.size_string_; ++i){
+        cstring[i]=s1.str_[i];
+    }
+    for (int j=s1.size_string_; j<s1.size_string_+i; ++j){
+        cstring[j]=pt_c[j-s1.size_string_];
+    }
+    cstring[s1.size_array_+i]='\0';
+    delete s1.str_;
+    s1.str_=cstring;
+    s1.size_string_+=i;
+    s1.size_array_+=i;
+    return(s1);
+}
 
 
 //Destructor

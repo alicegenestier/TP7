@@ -53,6 +53,14 @@ int main() {
     cout<<str1.str()<<endl;
     cout<<str1.length()<<endl;
     cout<<str1.capacity()<<endl;
+    
+    //test opérateur + pour un char* à droite
+    String str2(test3);
+    char add1[7]={' ','W','o','r','l','d','\0'};
+    char test4[7]={'a','\0'};
+    String s4(test4);
+    s4 = str2 + add1;
+    cout<<s4.str()<<endl;
 	return 0;
 } 
 

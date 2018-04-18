@@ -26,15 +26,29 @@ class String {
 	//~String();
 
 	//Operators
+	//=
 	/*String& operator= (const String& str_);
 	String& operator= (char* c);*/
+	
+	//opérateur = entre une String et un char
 	void operator= (char c);
+	
+	//+
 	/*String operator+ (const String& lhs, const String& rhs);
 	String operator+ (const String& lhs, char rhs);*/
 	//String operator+ (const String& lhs, char* rhs);
+	
+	//opérateur + entre une String et un char* à droite
+	//appelé en tant que friend donc la fonction est définie en dehors de la classe
+	friend String operator + (const String s, char* pt_c);
+	
+	//Test
+	//bool empty();
 
-	//Methods 	
+	//Methods
+	//coupe la String pour qu'elle ne fasse plus que la longueur n 	
 	void resize (int n);
+	//allonge la longueur de la String et ajoute le caractère c dans toutes les cases ajoutées
 	void resize (int n, char c);
 	/*void reserve (size_t n = 0);
 	void clear() noexcept;
@@ -42,3 +56,6 @@ class String {
 	const char* c_str() const noexcept;
 	*/
 };
+
+//définition de l'opérateur + d'une String par un char* à droite
+String operator + (const String s, char* pt_c);
