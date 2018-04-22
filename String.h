@@ -12,8 +12,8 @@ class String {
 	static const int MAX_SIZE_;
 	public :
 	//Getters
-	char* str();
-	/*int size() const noexcept;*/
+	char* str(); //appelé c-str dans l'énoncé du TP
+	int size() const noexcept;
 	int length() const noexcept;
 	int max_size() const noexcept;
 	int capacity() const noexcept;
@@ -50,11 +50,9 @@ class String {
 	void resize (int n);
 	//allonge la longueur de la String et ajoute le caractère c dans toutes les cases ajoutées
 	void resize (int n, char c);
+  void clear();
 	/*void reserve (size_t n = 0);
-	void clear() noexcept;
-	bool empty() const noexcept;
-	const char* c_str() const noexcept;
-	*/
+	bool empty() const noexcept;*/
 };
 
 //définition de l'opérateur + d'une String par un char* à droite

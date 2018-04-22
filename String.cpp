@@ -53,6 +53,12 @@ int String::capacity() const noexcept{
 	return size_array_;
 }
 
+//taille de la chaine de caractère; taille de la String
+//comme length
+int String::size() const noexcept{
+  return size_string_;
+}
+
 //Methodes
 /*Coupe la String
 Précondition : n doit être compris entre 0 et size_string_
@@ -115,6 +121,15 @@ void String::resize (int n, char c) {
     }
   }
 }
+
+/*Le premier élément de la chaine devient '\0'
+Précondition : pas de précondition
+Procédure : modifie l'objet courant*/
+void String::clear() {
+  str_[0]= '\0';
+  size_string_=0;
+}
+
 
 //Operators
 //opérateur = entre une String et un char

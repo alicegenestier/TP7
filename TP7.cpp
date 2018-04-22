@@ -64,12 +64,21 @@ int main() {
 
 
   cout<<"Tests de Juliette"<<endl;
+
   //test constructeur par copie
   String s5(s1); //construteur par copie
 	cout<<s5.str()<<endl; //affiche le string
 	cout<<s5.capacity()<<endl; //taille mémoire allouée pour s5
+	cout<<s5.size()<<endl;
+  cout<<s5.size()<<endl;
 
-    
+  //test clear
+  s5.clear();
+  cout<<s5.str()<<endl;
+	cout<<s5.capacity()<<endl;
+  cout<<s5.size()<<endl;
+  
+  
 	return 0;
 } 
 
