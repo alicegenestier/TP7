@@ -142,9 +142,9 @@ String operator + (const String s, char* pt_c){
 
 
 //Destructor
-/*String::~String(){
+String::~String(){
   delete str_;
-}*/
+}
 
 
 
