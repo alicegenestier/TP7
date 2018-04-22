@@ -72,13 +72,21 @@ int main() {
 	cout<<s5.size()<<endl;
   cout<<s5.size()<<endl;
 
+  //test opérateur =(string)
+  String s6 = s5;
+  cout<<s6.str()<<endl; //affiche le string
+	cout<<s6.capacity()<<endl; //taille mémoire allouée pour s5
+	cout<<s6.size()<<endl;
+  cout<<s6.size()<<endl;
+
+
   //test clear
   s5.clear();
   cout<<s5.str()<<endl;
 	cout<<s5.capacity()<<endl;
   cout<<s5.size()<<endl;
   
-  
+
 	return 0;
 } 
 

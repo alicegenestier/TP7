@@ -142,6 +142,16 @@ void String::operator= (char c){
   size_string_=1;
   size_array_=2;
 }
+//Opérateur = entre 2 string
+String& String::operator= (const String& str){
+  size_string_ = str.size();
+	size_array_ = str.capacity();
+  str_ = new char[size_array_+1];
+  for (int i=0; i<(size_string_+1);i++){
+    str_[i]= str.str_[i];
+  }
+  return *this;
+}
 
 //opérateur + entre une String et un char* à droite
 String operator + (const String s, char* pt_c){

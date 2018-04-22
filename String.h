@@ -27,8 +27,8 @@ class String {
 
 	//Operators
 	//=
-	/*String& operator= (const String& str_);
-	String& operator= (char* c);*/
+	String& operator= (const String& str);
+	/*String& operator= (char* c);*/
 	
 	//opérateur = entre une String et un char
 	void operator= (char c);
