@@ -61,6 +61,15 @@ int main() {
     String s4(test4);
     s4 = str2 + add1;
     cout<<s4.str()<<endl;
+
+
+  cout<<"Tests de Juliette"<<endl;
+  //test constructeur par copie
+  String s5(s1); //construteur par copie
+	cout<<s5.str()<<endl; //affiche le string
+	cout<<s5.capacity()<<endl; //taille mémoire allouée pour s5
+
+    
 	return 0;
 } 
 

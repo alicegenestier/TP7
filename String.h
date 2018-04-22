@@ -19,7 +19,7 @@ class String {
 	int capacity() const noexcept;
 	
 	//Constructors 
-	/*String (const String& str);*/
+	String (const String& str);
 	String (const char* chstr);
 
 	//Destructor

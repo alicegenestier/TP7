@@ -23,7 +23,12 @@ String::String (const char* chstr) {
 
 /*Constructeur par copie**/
 String::String(const String& str){
-  
+	size_string_ = str.size_string_;
+	size_array_ = str.size_array_;
+  str_ = new char[size_array_+1];
+  for (int i=0; i<(size_string_+1);i++){
+    str_[i]= str.str_[i];
+  }
 }
 
 
