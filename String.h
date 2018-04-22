@@ -34,14 +34,16 @@ class String {
 	void operator= (char c);
 	
 	//+
-	/*String operator+ (const String& lhs, const String& rhs);
-	String operator+ (const String& lhs, char rhs);*/
-	//String operator+ (const String& lhs, char* rhs);
+	//String operator+ (const String& lhs, const String& rhs);
 	
 	//opérateur + entre une String et un char* à droite
 	//appelé en tant que friend donc la fonction est définie en dehors de la classe
 	friend String operator + (const String s, char* pt_c);
 	
+  //opérateur + entre un String et char à droite
+  friend String operator+ (const String& s, char c);
+
+
 	//Test
 	//bool empty();
 

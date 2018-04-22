@@ -86,6 +86,12 @@ int main() {
 	cout<<s5.capacity()<<endl;
   cout<<s5.size()<<endl;
   
+  //test opérateur + string et char
+  char legume[7]={'l','e','g','u','m','e','\0'};
+  String s7(legume);
+  char c = 's';
+  String s8 = s7+c;
+  cout<<s8.str()<<endl;
 
 	return 0;
 } 

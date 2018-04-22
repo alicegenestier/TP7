@@ -175,6 +175,20 @@ String operator + (const String s, char* pt_c){
     return(s1);
 }
 
+//Opérateur + entre un String et un char à droite
+String operator+ (const String& s, char c){
+    int l = s.size()+1;
+    if (l>s.MAX_SIZE_){
+        std::cout<<"La chaine est trop longue !"<<std::endl;
+        l = l-1;
+    }
+    String monstring = String(s);
+    monstring.resize(l);
+    monstring.str_[l-1]=c;
+    monstring.str_[l]='\0';
+    return monstring;
+    
+}
 
 //Destructor
 /*String::~String(){
