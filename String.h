@@ -4,58 +4,86 @@ class String {
 
 	protected :
 
-	//Attributs
-
+/*******************
+      Attributs
+********************/
+  
 	char* str_;
 	int size_string_;
 	int size_array_;
 	static const int MAX_SIZE_;
+
 	public :
-	//Getters
-	char* str(); //appelé c-str dans l'énoncé du TP
+
+/*******************
+      Getters
+********************/
+  
+	char* str();                      //appelé c-str dans l'énoncé du TP
 	int size() const noexcept;
 	int length() const noexcept;
 	int max_size() const noexcept;
 	int capacity() const noexcept;
 	
-	//Constructors 
+	//Constructeurs 
 	String (const String& str);
 	String (const char* chstr);
 
-	//Destructor
-	//~String();
-
-	//Operators
-	//=
-	String& operator= (const String& str);
-	/*String& operator= (char* c);*/
-	
-	//opérateur = entre une String et un char
-	void operator= (char c);
-	
-	//+
-	//String operator+ (const String& lhs, const String& rhs);
-	
-	//opérateur + entre une String et un char* à droite
-	//appelé en tant que friend donc la fonction est définie en dehors de la classe
-	friend String operator + (const String s, char* pt_c);
-	
-  //opérateur + entre un String et char à droite
-  friend String operator+ (const String& s, char c);
+	//Destructeur
+	~String();
 
 
-	//Test
-	//bool empty();
+/*******************
+      Méthodes
+********************/
 
-	//Methods
-	//coupe la String pour qu'elle ne fasse plus que la longueur n 	
+	//RESIZE :
+  //coupe la String pour qu'elle ne fasse plus que la longueur n 	
 	void resize (int n);
 	//allonge la longueur de la String et ajoute le caractère c dans toutes les cases ajoutées
 	void resize (int n, char c);
+
+  //CLEAR : efface le contenu du string
   void clear();
-	/*void reserve (size_t n = 0);
-	bool empty() const noexcept;*/
+
+  //RESERVE : demande d'augmenter la longueur du tableau (capacity)
+  void reserve (int n );
+
+  //EMPTY : teste si string vide
+	bool empty() const noexcept;
+
+
+/*******************
+     Opérateurs
+********************/
+
+	//OPERATEURS =
+  
+  //Opérateur = entre une String et un char
+	void operator= (char c);
+
+  //Opérateur = entre deux String
+	String& operator= (const String& str);
+	
+	//Opérateur = entre une String et un char*
+  String& operator= (char* c);
+	
+	//OPERATEURS +
+	//appelés en tant que friend donc la fonction est définie en dehors de la classe
+
+  //Opérateur + entre un String et char à droite
+  friend String operator+ (const String& s, char c);
+
+	//Opérateur + entre deux String
+  friend String operator+ (const String& lhs, const String& rhs);
+	
+	//Opérateur + entre une String et un char* à droite
+	friend String operator + (const String s, char* pt_c);
+	
+
 };
 
-//définition de l'opérateur + d'une String par un char* à droite
-String operator + (const String s, char* pt_c);
+//définitions des opérateurs +
+String operator+ (const String& s, char c);
+String operator+ (const String& lhs, const String& rhs);
+String operator+ (const String s, char* pt_c);
