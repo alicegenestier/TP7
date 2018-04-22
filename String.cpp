@@ -21,6 +21,11 @@ String::String (const char* chstr) {
 	size_array_=i+1;
 }
 
+/*Constructeur par copie**/
+String::String(const String& str){
+  
+}
+
 
 //Getters
 //pointeur vers la String
@@ -142,9 +147,9 @@ String operator + (const String s, char* pt_c){
 
 
 //Destructor
-String::~String(){
+/*String::~String(){
   delete str_;
-}
+}*/
 
 
 
