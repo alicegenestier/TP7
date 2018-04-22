@@ -4,9 +4,10 @@ using namespace std;
 
 const int String::MAX_SIZE_=100;
 
-	/*******************
-      Constr/Destr
-  ********************/
+
+/*******************
+    Constr/Destr
+********************/
 
 //Constructeur à partir d'un char
 String::String (const char* chstr) {
@@ -34,16 +35,17 @@ String::String(const String& str){
   }
 }
 
-//Destructor
+//Destructeur
 String::~String(){
   delete[] str_;
   str_ = nullptr;
 }
 
-  /*******************
-        Getters
-  ********************/
+/*******************
+      Getters
+********************/
   
+
 //CHAR* : pointeur vers le String
 char* String::str() {
     return str_;
@@ -70,9 +72,9 @@ int String::size() const noexcept{
   return size_string_;
 }
 
-	/*******************
-        Méthodes
-  ********************/
+/*******************
+     Méthodes
+********************/
 
 
 /*RESIZE : Coupe le String
@@ -179,9 +181,9 @@ bool String::empty() const noexcept{
    }
 }
 
-	/*******************
-        Opérateurs
-  ********************/
+/*******************
+     Opérateurs
+********************/
 
 
 //OPERATEURS =
